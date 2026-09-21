@@ -7,3 +7,5 @@ type: scribbles
 "The world is not driven by greed; it's driven by **envy**." --- *Charlie Munger*
 
 "Yesterday is history, tomorrow is a mystery, but today is a gift. That is why it is called the **present**." --- *Eleanor Roosevelt*
+
+"Enter through the narrow gate. For wide is the gate and broad is the road that leads to destruction, and many enter through it. But small is the gate and narrow the road that leads to life, and only a few find it. Watch out for false prophets. They come to you in sheep's clothing, but inwardly they are ferocious wolves." --- *Matthew 7:13-15*
