@@ -1,0 +1,13 @@
+{{- $u := urls.Parse .Destination -}}
+{{- $src := $u.String -}}
+{{- if not $u.IsAbs -}}
+  {{- with .Page.Resources.Get (path.Clean $u.Path) -}}
+    {{- $src = .RelPermalink -}}
+  {{- end -}}
+{{- end -}}
+<figure>
+  <img src="{{ $src }}" alt="{{ .PlainText }}" loading="lazy">
+  {{- with .PlainText }}
+  <figcaption>{{ . }}</figcaption>
+  {{- end }}
+</figure>

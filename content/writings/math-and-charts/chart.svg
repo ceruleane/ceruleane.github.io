@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 340" font-family="ui-monospace, SF Mono, Menlo, Consolas, monospace" font-size="12">
+  <g stroke="#cfcfcf" stroke-dasharray="2 4">
+    <line x1="50" y1="238" x2="610" y2="238"/>
+    <line x1="50" y1="186" x2="610" y2="186"/>
+    <line x1="50" y1="134" x2="610" y2="134"/>
+    <line x1="50" y1="82" x2="610" y2="82"/>
+    <line x1="50" y1="30" x2="610" y2="30"/>
+  </g>
+  <g stroke="#9a9a9a">
+    <line x1="50" y1="290" x2="610" y2="290"/>
+    <line x1="50" y1="30" x2="50" y2="290"/>
+  </g>
+  <g fill="#8a8a8a" text-anchor="end">
+    <text x="42" y="294">0</text><text x="42" y="242">1</text><text x="42" y="190">2</text>
+    <text x="42" y="138">3</text><text x="42" y="86">4</text><text x="42" y="34">5</text>
+  </g>
+  <g fill="#8a8a8a" text-anchor="middle">
+    <text x="50" y="310">0</text><text x="190" y="310">1</text><text x="330" y="310">2</text>
+    <text x="470" y="310">3</text><text x="610" y="310">4</text>
+    <text x="330" y="332">years</text>
+  </g>
+  <polyline fill="none" stroke="#9a9a9a" stroke-width="2" stroke-dasharray="6 5" points="50.0,238.0 610.0,134.0"/>
+  <polyline fill="none" stroke="#1f56c4" stroke-width="2.5" stroke-linejoin="round" points="50.0,238.0 64.0,236.1 78.0,234.2 92.0,232.2 106.0,230.2 120.0,228.1 134.0,225.8 148.0,223.6 162.0,221.2 176.0,218.7 190.0,216.2 204.0,213.6 218.0,210.9 232.0,208.0 246.0,205.1 260.0,202.1 274.0,199.0 288.0,195.7 302.0,192.4 316.0,188.9 330.0,185.3 344.0,181.6 358.0,177.7 372.0,173.7 386.0,169.5 400.0,165.3 414.0,160.8 428.0,156.2 442.0,151.4 456.0,146.5 470.0,141.4 484.0,136.1 498.0,130.6 512.0,125.0 526.0,119.1 540.0,113.0 554.0,106.7 568.0,100.1 582.0,93.4 596.0,86.4 610.0,79.1"/>
+  <g font-size="12">
+    <line x1="70" y1="52" x2="98" y2="52" stroke="#1f56c4" stroke-width="2.5"/><text x="106" y="56" fill="#555">compounding</text>
+    <line x1="200" y1="52" x2="228" y2="52" stroke="#9a9a9a" stroke-width="2" stroke-dasharray="6 5"/><text x="236" y="56" fill="#555">linear</text>
+  </g>
+</svg>

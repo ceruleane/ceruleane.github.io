@@ -1,0 +1,195 @@
+/* ---------------------------------------------------------------------
+   All of the site's styling, in one plain CSS file.
+   The knobs you are most likely to turn are in :root below: colours,
+   the column width, and the font. For a serif look, replace the --font
+   line with the commented one under it.
+   --------------------------------------------------------------------- */
+
+:root {
+  --bg: #ffffff;
+  --text: #1a1a1a;
+  --muted: #6f6f6f;
+  --line: #e8e8e8;
+  --underline: #bdbdbd;
+  --code-bg: #f4f4f4;
+  --measure: 40rem; /* width of the text column */
+  /* --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, "Helvetica Neue", Arial, sans-serif; */
+  --font: "Iowan Old Style", "Palatino Linotype", Palatino, Charter, Georgia, serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+/* Dark mode follows the system setting. Delete this block for a light-only site. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111111;
+    --text: #e6e6e6;
+    --muted: #8f8f8f;
+    --line: #2a2a2a;
+    --underline: #5c5c5c;
+    --code-bg: #1c1c1c;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  color-scheme: light dark;
+}
+
+body {
+  margin: 0 auto;
+  max-width: var(--measure);
+  padding: 3.5rem 1.25rem 3rem;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Links: same colour as the text, with a quiet underline that darkens on hover. */
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--underline);
+  text-underline-offset: 0.18em;
+}
+a:hover { text-decoration-color: currentColor; }
+:focus-visible { outline: 2px solid var(--text); outline-offset: 3px; border-radius: 2px; }
+
+/* Masthead: name on top, navigation underneath ----------------------- */
+.masthead { margin-bottom: 3.5rem; }
+.masthead .site-name {
+  display: inline-block;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+.masthead nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 0.4rem;
+  font-size: 0.9rem;
+}
+.masthead nav a { color: var(--muted); text-decoration: none; }
+.masthead nav a:hover { color: var(--text); }
+.masthead nav a[aria-current="page"] {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+  text-underline-offset: 0.4em;
+}
+
+/* Text --------------------------------------------------------------- */
+h1, h2, h3, h4 { margin: 0; font-weight: 600; line-height: 1.25; letter-spacing: -0.015em; }
+h1 { font-size: 1.85rem; margin-bottom: 0.4rem; }
+h2 { font-size: 1.25rem; margin: 2.25rem 0 0.6rem; }
+h3 { font-size: 1.05rem; margin: 1.75rem 0 0.4rem; }
+h4 { font-size: 1rem; margin: 1.5rem 0 0.4rem; }
+p, ul, ol { margin: 0 0 1.1rem; }
+ul, ol { padding-left: 1.3rem; }
+li { margin-bottom: 0.25rem; }
+li > p { margin-bottom: 0.5rem; }
+hr { border: 0; border-top: 1px solid var(--line); margin: 2.5rem 0; }
+blockquote { margin: 1.4rem 0; padding-left: 1rem; border-left: 2px solid var(--line); color: var(--muted); }
+blockquote p:last-child { margin-bottom: 0; }
+strong { font-weight: 600; }
+small, .muted { color: var(--muted); }
+sup { line-height: 0; }
+
+/* Home page: the first paragraph of the intro is set a little larger. */
+.intro > p:first-child { font-size: 1.3rem; font-weight: 500; letter-spacing: -0.01em; margin-bottom: 1.25rem; }
+
+/* Writings list: date on the left, title and one-line summary on the right */
+.post-list { list-style: none; padding: 0; margin: 2rem 0 0; }
+.post-list li {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  column-gap: 1rem;
+  margin: 0 0 1.4rem;
+}
+.post-list time { padding-top: 0.15rem; font-size: 0.85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.post-list a { font-weight: 500; text-decoration: none; }
+.post-list a:hover { text-decoration: underline; }
+.post-list p { margin: 0.15rem 0 0; font-size: 0.95rem; color: var(--muted); }
+
+/* Single post -------------------------------------------------------- */
+.post-header { margin-bottom: 2rem; }
+.post-header time { display: block; margin-top: 0.3rem; font-size: 0.9rem; color: var(--muted); }
+.back { margin-top: 3rem; font-size: 0.9rem; }
+.back a { color: var(--muted); text-decoration: none; }
+.back a:hover { color: var(--text); }
+
+/* Scribbles: each paragraph is one item, separated by a hairline ------ */
+.scribbles { margin-top: 1.75rem; }
+.scribbles > * { margin: 0; padding-block: 0.9rem; }
+.scribbles > * + * { border-top: 1px solid var(--line); }
+
+/* Code --------------------------------------------------------------- */
+code, pre, kbd { font-family: var(--mono); font-size: 0.875em; }
+code { background: var(--code-bg); padding: 0.1em 0.35em; border-radius: 4px; }
+pre {
+  background: var(--code-bg);
+  padding: 0.9rem 1rem;
+  border-radius: 6px;
+  overflow-x: auto;
+  line-height: 1.5;
+  margin: 1.4rem 0;
+}
+pre code { background: none; padding: 0; font-size: inherit; }
+
+/* Figures (images, charts) ------------------------------------------- */
+img, svg, video { max-width: 100%; height: auto; }
+figure { margin: 1.75rem 0; }
+figure img { display: block; margin: 0 auto; }
+figcaption { margin-top: 0.6rem; text-align: center; font-size: 0.9rem; color: var(--muted); }
+iframe { display: block; max-width: 100%; border: 0; margin: 1.75rem auto; }
+
+/* Tables ------------------------------------------------------------- */
+table { border-collapse: collapse; width: 100%; margin: 1.5rem 0; font-size: 0.95rem; }
+th, td { text-align: left; padding: 0.45rem 0.6rem; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-weight: 600; }
+
+/* Math (KaTeX) ------------------------------------------------------- */
+.katex { font-size: 1.08em; }
+.katex-display { overflow-x: auto; overflow-y: hidden; padding: 0.25rem 0; margin: 1.25rem 0; }
+
+/* Footnotes ---------------------------------------------------------- */
+.footnotes { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: 0.9rem; color: var(--muted); }
+.footnotes hr { display: none; }
+.footnotes ol { padding-left: 1.2rem; }
+.footnote-backref { margin-left: 0.25em; text-decoration: none; }
+
+/* Footer ------------------------------------------------------------- */
+.site-footer { margin-top: 4.5rem; font-size: 0.85rem; color: var(--muted); }
+.site-footer a { color: var(--muted); text-decoration: none; }
+.site-footer a:hover { color: var(--text); }
+.site-footer .sep { margin: 0 0.5rem; }
+
+/* Syntax highlighting: a handful of Chroma classes, GitHub's palette -- */
+.chroma .k, .chroma .kd, .chroma .kn, .chroma .kr, .chroma .kt, .chroma .kp, .chroma .ow { color: #cf222e; }
+.chroma .s, .chroma .s1, .chroma .s2, .chroma .sb, .chroma .sa, .chroma .dl, .chroma .sd, .chroma .se, .chroma .sh, .chroma .si, .chroma .sx, .chroma .sr, .chroma .ss { color: #0a3069; }
+.chroma .c, .chroma .c1, .chroma .cm, .chroma .cs, .chroma .ch, .chroma .cp, .chroma .cpf { color: #6e7781; font-style: italic; }
+.chroma .m, .chroma .mi, .chroma .mf, .chroma .mh, .chroma .mo, .chroma .mb, .chroma .il, .chroma .kc { color: #0550ae; }
+.chroma .nf, .chroma .fm, .chroma .nc, .chroma .nd, .chroma .nt { color: #8250df; }
+@media (prefers-color-scheme: dark) {
+  .chroma .k, .chroma .kd, .chroma .kn, .chroma .kr, .chroma .kt, .chroma .kp, .chroma .ow { color: #ff7b72; }
+  .chroma .s, .chroma .s1, .chroma .s2, .chroma .sb, .chroma .sa, .chroma .dl, .chroma .sd, .chroma .se, .chroma .sh, .chroma .si, .chroma .sx, .chroma .sr, .chroma .ss { color: #a5d6ff; }
+  .chroma .c, .chroma .c1, .chroma .cm, .chroma .cs, .chroma .ch, .chroma .cp, .chroma .cpf { color: #8b949e; }
+  .chroma .m, .chroma .mi, .chroma .mf, .chroma .mh, .chroma .mo, .chroma .mb, .chroma .il, .chroma .kc { color: #79c0ff; }
+  .chroma .nf, .chroma .fm, .chroma .nc, .chroma .nd, .chroma .nt { color: #d2a8ff; }
+}
+
+/* Small screens ------------------------------------------------------ */
+@media (max-width: 480px) {
+  body { padding-top: 2.5rem; font-size: 16px; }
+  .masthead { margin-bottom: 2.5rem; }
+  h1 { font-size: 1.6rem; }
+  .post-list li { grid-template-columns: 1fr; }
+  .post-list time { padding-top: 0; }
+}

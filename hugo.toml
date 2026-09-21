@@ -1,0 +1,48 @@
+# -----------------------------------------------------------------------
+# Site settings. The things you will actually want to change are at the
+# top: title, author, description, social links.
+# -----------------------------------------------------------------------
+
+baseURL = 'https://example.com/'  # GitHub Pages overrides this automatically; it only matters for local builds.
+locale = 'en-US'
+title = 'Charles Shin'
+
+enableRobotsTXT = true
+disableKinds = ['taxonomy', 'term']  # no tag/category pages. Delete this line if you ever want them.
+
+[params]
+  author = 'Charles Shin'
+  description = 'Notes, ideas, and others.'
+
+  [[params.social]]
+    name = 'GitHub'
+    url = 'https://github.com/ceruleane'
+  [[params.social]]
+    name = 'X'
+    url = 'https://x.com/XOliveoil'
+
+[menus]
+  [[menus.main]]
+    name = 'About'
+    pageRef = '/'
+    weight = 10
+  [[menus.main]]
+    name = 'Writings'
+    pageRef = '/writings'
+    weight = 20
+  [[menus.main]]
+    name = 'Scribbles'
+    pageRef = '/scribbles'
+    weight = 30
+
+[markup]
+  [markup.goldmark.renderer]
+    unsafe = true  # allow raw HTML inside Markdown (e.g. an <iframe> for an interactive chart)
+  [markup.goldmark.extensions.passthrough]
+    enable = true  # leave $...$ and $$...$$ alone so they can be rendered as math
+    [markup.goldmark.extensions.passthrough.delimiters]
+      block = [['\[', '\]'], ['$$', '$$']]
+      inline = [['\(', '\)'], ['$', '$']]
+  [markup.highlight]
+    noClasses = false  # code colours live in assets/css/main.css so they follow dark mode
+    lineNos = false

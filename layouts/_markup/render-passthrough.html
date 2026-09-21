@@ -1,0 +1,12 @@
+{{- /* Renders $...$ (inline) and $$...$$ (block) to HTML at build time with KaTeX.
+       "htmlAndMathml" gives the classic KaTeX look (needs the KaTeX stylesheet, loaded in head.html)
+       plus MathML for screen readers. throwOnError=false shows a typo in red instead of failing the build. */ -}}
+{{- $opts := dict "displayMode" (eq .Type "block") "output" "htmlAndMathml" "throwOnError" false -}}
+{{- with try (transform.ToMath .Inner $opts) -}}
+  {{- with .Err -}}
+    {{- errorf "Could not render math at %s: %s" $.Position . -}}
+  {{- else -}}
+    {{- .Value -}}
+    {{- $.Page.Store.Set "hasMath" true -}}
+  {{- end -}}
+{{- end -}}

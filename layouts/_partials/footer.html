@@ -1,0 +1,6 @@
+<footer class="site-footer">
+   {{- range $index, $element := site.Params.social }}
+   {{- if $index }}<span class="sep">&middot;</span>{{- end }}
+   <a href="{{ .url }}" rel="me" target="_blank" rel="noopener noreferrer">{{ .name }}</a>
+   {{- end }}
+</footer>

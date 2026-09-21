@@ -1,0 +1,23 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{{- $title := site.Title }}
+{{- if not .IsHome }}{{ $title = printf "%s — %s" .Title site.Title }}{{ end }}
+<title>{{ $title }}</title>
+{{- $desc := .Description | default site.Params.description }}
+<meta name="description" content="{{ $desc }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<link rel="canonical" href="{{ .Permalink }}">
+{{- range .AlternativeOutputFormats }}
+<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ site.Title }}">
+{{- end }}
+<link rel="icon" href="data:image/svg+xml,{{ printf `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%%23111'/><text x='16' y='23' font-family='Georgia,serif' font-size='20' text-anchor='middle' fill='%%23fff'>%s</text></svg>` (substr site.Title 0 1) | safeURL }}">
+{{- with resources.Get "css/main.css" }}
+  {{- $css := . }}
+  {{- if hugo.IsProduction }}{{ $css = $css | minify | fingerprint }}{{ end }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">
+{{- end }}
+{{- if .Store.Get "hasMath" }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.18.4/dist/katex.min.css">
+{{- end }}

@@ -1,0 +1,15 @@
+{{- /* Render the content first so render hooks can flag things (e.g. "this page has math") before <head> is written. */ -}}
+{{- $noop := .Content -}}
+<!DOCTYPE html>
+<html lang="{{ site.Language.Locale }}">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body>
+  {{ partial "header.html" . }}
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+  {{ partial "footer.html" . }}
+</body>
+</html>
