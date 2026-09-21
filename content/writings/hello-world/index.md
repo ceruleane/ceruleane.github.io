@@ -15,4 +15,4 @@ And writing is *scary*. I could be wrong, and I may only realize it after somebo
 
 I'll keep the format simple: short pieces, mostly text, sometimes a graph when a picture says it better than a paragraph.
 
-That's it for now. The next post is a cheat sheet for how I put things on this page, so I don't forget.
+That's it for now.
