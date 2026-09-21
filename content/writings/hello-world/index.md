@@ -9,7 +9,7 @@ Talking is easy. Writing it down in a clear, concise form is 100x harder.
 
 Often I get swept away by time. I forget what I did last week, then curl up in bed chastising myself for not working harder.
 
-And writing is *scary*. I could be wrong, and I may only realize it after somebody else points it out.
+And writing is *intimidating*. I could be wrong, and I may only realize it after somebody else points it out.
 
 > But it's better than having my traces forgotten at all.
 
