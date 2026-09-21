@@ -20,6 +20,9 @@ disableKinds = ['taxonomy', 'term']  # no tag/category pages. Delete this line i
   [[params.social]]
     name = 'X'
     url = 'https://x.com/XOliveoil'
+  [[params.social]]
+    name = 'Google Scholar'
+    url = 'https://scholar.google.com/citations?user=DO_swSsAAAAJ'
 
 [menus]
   [[menus.main]]

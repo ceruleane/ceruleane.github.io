@@ -2,6 +2,7 @@
 title: "Math, charts, and code"
 date: 2026-09-20
 description: "A reference post showing everything this site can render. Keeping it until I completely internalize it."
+draft: true
 ---
 
 This post is a working cheat sheet.
