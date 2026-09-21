@@ -1,8 +1,4 @@
 public/
 resources/_gen/
-
-./README.md
-
-.claude
 .hugo_build.lock
 .DS_Store
