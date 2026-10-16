@@ -7,7 +7,9 @@ description: "Why Common Loss Functions Take Their Form"
 
 **Preliminaries and Notation**
 
-\(P\): true distribution. \(p_\theta\): model probability mass/density.
+\(P\): true distribution.  
+\(p_\theta\): model probability mass/density.  
+
 Observations are i.i.d. from \(P\); all logs are natural.
 
 **Maximum likelihood estimation (MLE)**
