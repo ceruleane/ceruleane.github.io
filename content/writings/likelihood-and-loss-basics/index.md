@@ -1,6 +1,6 @@
 ---
 title: "From Likelihood to Loss"
-date: 2026-10-12
+date: 2026-09-23
 description: "Why Common Loss Functions Take Their Form"
 ---
 
